@@ -46,5 +46,8 @@
     &.btn-link {
         background-color: #ffffff;
         color: #008cb1;
+        &:hover {
+            text-decoration: underline !important;
+        }
     }
 }
