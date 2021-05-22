@@ -1,1 +1,24 @@
-<p>dashboard works!</p>
+<div class="card">
+
+    <h1 class="header">Home</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>email</th>
+                <th>username</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of List">
+                <td>{{ user.email }}</td>
+                <td>{{ user.username }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+</div>
