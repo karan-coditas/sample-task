@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserstorageService } from '../userstorage.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder,private userStorageService: UserstorageService) {
     this.registerForm = fb.group({
       email : [null, Validators.required],
       username: [null, Validators.required],      
@@ -23,6 +24,8 @@ export class RegisterComponent implements OnInit {
 
   onRegister(value: any) {
     console.log(value);
+    this.userStorageService.saveUser(value);
+    alert('User Saved!');
   }
 
 }
