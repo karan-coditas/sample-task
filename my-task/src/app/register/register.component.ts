@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserstorageService } from '../userstorage.service';
 
 @Component({
@@ -8,11 +8,12 @@ import { UserstorageService } from '../userstorage.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
   registerForm: FormGroup;
 
   constructor(fb: FormBuilder,private userStorageService: UserstorageService) {
     this.registerForm = fb.group({
-      email : [null, Validators.required],
+      email : [null, Validators.compose([Validators.required, Validators.email])],
       username: [null, Validators.required],      
       password: [null, Validators.required],
       confirmPassword: [null, Validators.required]
