@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    console.log('ON INIT LOGIN')
   }
 
   onLogin(value: any) {
